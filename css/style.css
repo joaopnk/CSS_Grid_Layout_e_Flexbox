@@ -1,0 +1,153 @@
+body,
+ul,
+li,
+p{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial;
+}
+body{
+    margin-bottom: 100px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+.header{
+    background-color: #1d1e20;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.menu{
+    display: flex;
+}
+.menu li{
+    margin-left: 10px;
+}
+.menu li a{
+    display: block;
+    padding: 10px;
+}
+
+/* CSS FLEXBOX 1 */
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.flex > div{ /* se referindo a div dentro do flex */
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+/* CSS GRID 1*/
+
+.grid1{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*repetindo 3x o 1fr |dividindo em quantas colunas */
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+    grid-gap: 20px; /* semelhante a margin */
+}
+
+.grid1 > div:nth-child(n + 4){ /* n + NUM | a partir de qual numero (num) vai aplicar o background blue */
+    /* background-color: blue; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: center;
+}
+.grid1 > div.anuncio{
+    grid-column: 1; /* passando que quero que esteja na primeira coluna */
+    grid-row: 2 / 5; /* quero que a linha va do 2 até o 5 */
+    display: block;
+}
+@media (max-width: 600px){
+    .grid1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid1 > div:nth-child(n + 4){
+        display: block;
+    }
+    .grid1 > div.anuncio{
+        grid-column: auto;
+        grid-row: auto;
+        order: -1; /* deixando ele como o primeiro item que aparece */
+    }
+}
+
+/* CSS grid2 */
+
+.grid2{
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-gap: 20px;
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.sidebar{
+    margin-bottom: 10px;
+}
+@media (max-width: 600px){
+    .grid2{
+        grid-template-columns: 1fr;
+    }
+    .sidebar{
+        display: flex;
+        overflow: scroll;
+    }
+    .sidebar > div{
+        flex: 1 0 200px;
+        margin: 0 10px;
+    }
+}
+
+/* SECTION GRID3 */
+
+.grid3{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);   
+    grid-gap: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px;
+}
+.grid3-item:nth-child(1){
+    grid-row: 1 / 3;
+}
+.grid3-item{
+    display: grid;
+}
+.grid3-item img{
+    grid-column: 1;
+    grid-row: 1/3;
+    align-self: end;
+}
+
+.grid3-item p{
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+
+}
